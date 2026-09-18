@@ -11,6 +11,7 @@ export function SignUp() {
   const { tr, lang, setProfile } = useApp()
   const router = useRouter()
   const [childName, setChildName] = useState('Ahmed')
+  const [mrNumber, setMrNumber] = useState('IH-2024-100245')
   const [age, setAge] = useState('5')
   const [guardianName, setGuardianName] = useState('Fatima')
   const [guardianContact, setGuardianContact] = useState('0300-0000000')
@@ -19,12 +20,13 @@ export function SignUp() {
 
   function onSubmit(e: FormEvent) {
     e.preventDefault()
-    if (!childName.trim() || !age.trim() || !guardianContact.trim()) {
+    if (!childName.trim() || !mrNumber.trim() || !age.trim() || !guardianContact.trim()) {
       setError(true)
       return
     }
     setProfile({
       childName: childName.trim(),
+      mrNumber: mrNumber.trim(),
       age: age.trim(),
       guardianName: guardianName.trim(),
       guardianContact: guardianContact.trim(),
@@ -42,6 +44,15 @@ export function SignUp() {
         <label>
           {tr('childName')}
           <input value={childName} onChange={(e) => setChildName(e.target.value)} autoComplete="name" />
+        </label>
+        <label>
+          {tr('mrNumber')}
+          <input
+            value={mrNumber}
+            onChange={(e) => setMrNumber(e.target.value)}
+            autoComplete="off"
+            inputMode="text"
+          />
         </label>
         <label>
           {tr('age')}

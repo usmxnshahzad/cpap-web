@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import { Manrope, Noto_Nastaliq_Urdu } from 'next/font/google'
+import { Ubuntu, Noto_Nastaliq_Urdu } from 'next/font/google'
 import { Providers } from './providers'
 import '../index.css'
 
-const manrope = Manrope({
+const ubuntu = Ubuntu({
   subsets: ['latin'],
+  weight: ['400', '500', '700'],
   variable: '--font-sans',
   display: 'swap',
 })
@@ -28,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${nastaliq.variable}`}
+      className={`${ubuntu.variable} ${nastaliq.variable}`}
       suppressHydrationWarning
     >
       <body>

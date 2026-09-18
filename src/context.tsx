@@ -10,6 +10,7 @@ import {
 } from 'react'
 import type { Appointment, Lang, Profile } from './types'
 import { t, type CopyKey } from './i18n'
+import { AppLoader } from './components/Loader'
 
 const STORAGE_KEY = 'cpap-demo-state'
 
@@ -62,6 +63,7 @@ function load(): Persisted {
         ...parsed.profile,
         childName: scrubLabel(parsed.profile.childName),
         guardianName: scrubLabel(parsed.profile.guardianName),
+        mrNumber: parsed.profile.mrNumber ?? '',
       },
     }
   } catch {
@@ -75,7 +77,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     setState(load())
-    setHydrated(true)
+    const id = window.setTimeout(() => setHydrated(true), 700)
+    return () => window.clearTimeout(id)
   }, [])
 
   useEffect(() => {
@@ -114,7 +117,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
     [state],
   )
 
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>
+  return (
+    <AppContext.Provider value={value}>
+      {!hydrated ? <AppLoader label={t(state.lang, 'loading')} /> : children}
+    </AppContext.Provider>
+  )
 }
 
 export function useApp() {

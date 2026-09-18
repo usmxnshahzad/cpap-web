@@ -115,6 +115,7 @@ const copy = {
     ur: 'براہ کرم IHHN مددگار کے ساتھ پُر کریں۔ تمام خانے ڈیمو ہیں۔',
   },
   childName: { en: 'Child’s name', ur: 'بچے کا نام' },
+  mrNumber: { en: 'MR number', ur: 'ایم آر نمبر' },
   age: { en: 'Age (years)', ur: 'عمر (سال)' },
   guardianName: { en: 'Parent / guardian name', ur: 'والدین / سرپرست کا نام' },
   guardianContact: { en: 'Mobile number', ur: 'موبائل نمبر' },
@@ -269,6 +270,7 @@ const copy = {
     en: 'IHHN centres included in this app.',
     ur: 'اس پروٹوٹائپ میں سینٹرز کی ڈیمو فہرست۔',
   },
+  loading: { en: 'Loading', ur: 'لوڈ ہو رہا ہے' },
   required: { en: 'Please fill this in', ur: 'براہ کرم یہ پُر کریں' },
   aiNote: {
     en: 'Placeholder for future AI / voice assistant.',

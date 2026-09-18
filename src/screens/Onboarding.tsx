@@ -194,6 +194,7 @@ export function RegistrationStatus() {
               onClick={() => {
                 setProfile({
                   childName: '',
+                  mrNumber: '',
                   age: '',
                   guardianName: '',
                   guardianContact: '',

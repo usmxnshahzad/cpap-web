@@ -27,10 +27,11 @@ export function Home() {
   return (
     <Shell
       title={tr('dashboardHi')}
-      listenText={`${tr('dashboardHi')}. ${tr('forChild')} ${child}.`}
+      listenText={`${tr('dashboardHi')}. ${tr('forChild')} ${child}${profile?.mrNumber ? `. ${tr('mrNumber')} ${profile.mrNumber}` : ''}.`}
     >
       <p className="child-line">
         {tr('forChild')} <strong>{child}</strong>
+        {profile?.mrNumber ? ` · ${tr('mrNumber')} ${profile.mrNumber}` : null}
         {cp && registered ? ` · ${lang === 'ur' ? cp.ur : cp.en}` : null}
       </p>
       <div className="tile-grid">

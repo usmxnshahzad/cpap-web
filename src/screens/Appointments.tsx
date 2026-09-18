@@ -44,6 +44,12 @@ export function Appointments() {
     <Shell title={tr('apptTitle')} listenText={`${tr('apptTitle')}. ${tr('apptLead')}`} backTo="/home">
       <GuestGate onRegister={() => router.push('/signup')}>
         <p>{tr('apptLead')}</p>
+        {profile?.mrNumber ? (
+          <p className="patient-mr">
+            {tr('mrNumber')}: {profile.mrNumber}
+            {profile.childName ? ` · ${profile.childName}` : null}
+          </p>
+        ) : null}
         <div className="split-2">
           <section className="card panel">
             {done ? (
@@ -155,6 +161,11 @@ export function Appointments() {
                       <p>
                         {a.date} · {a.time} · {a.mode === 'virtual' ? tr('virtual') : tr('inPerson')}
                       </p>
+                      {profile?.mrNumber ? (
+                        <p className="patient-mr">
+                          {tr('mrNumber')}: {profile.mrNumber}
+                        </p>
+                      ) : null}
                     </li>
                   )
                 })}

@@ -31,7 +31,10 @@ export function Consult() {
             {phase === 'connecting' ? tr('connecting') : null}
             {phase === 'live' ? tr('inCall') : null}
           </p>
-          <p className="muted">{profile?.childName ? `${tr('forChild')} ${profile.childName}` : null}</p>
+          <p className="muted">
+            {profile?.childName ? `${tr('forChild')} ${profile.childName}` : null}
+            {profile?.mrNumber ? ` · ${tr('mrNumber')} ${profile.mrNumber}` : null}
+          </p>
         </div>
         <div className="consult-controls">
         {phase === 'idle' ? (

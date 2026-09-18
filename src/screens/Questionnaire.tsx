@@ -7,7 +7,7 @@ import { Shell } from '../components/Shell'
 import { GuestGate } from '../components/Widgets'
 
 export function Questionnaire() {
-  const { tr, lang, answers, setAnswer, surveyDone, completeSurvey } = useApp()
+  const { tr, lang, profile, answers, setAnswer, surveyDone, completeSurvey } = useApp()
   const router = useRouter()
   const total = questionnaire.questions.length
   const filled = questionnaire.questions.filter((q) => answers[q.id]).length
@@ -17,6 +17,12 @@ export function Questionnaire() {
     <Shell title={tr('surveyTitle')} listenText={`${tr('surveyTitle')}. ${tr('surveyLead')}`} backTo="/home" wide={false}>
       <GuestGate onRegister={() => router.push('/signup')}>
         <p>{tr('surveyLead')}</p>
+        {profile?.mrNumber ? (
+          <p className="patient-mr">
+            {tr('mrNumber')}: {profile.mrNumber}
+            {profile.childName ? ` · ${profile.childName}` : null}
+          </p>
+        ) : null}
         <p>
           {lang === 'ur' ? questionnaire.discipline.ur : questionnaire.discipline.en} ·{' '}
           {lang === 'ur' ? questionnaire.cadenceUr : questionnaire.cadenceEn}

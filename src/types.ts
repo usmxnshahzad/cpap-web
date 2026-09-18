@@ -13,6 +13,7 @@ export type EvidenceLevel = 'green' | 'amber' | 'red'
 
 export type Profile = {
   childName: string
+  mrNumber: string
   age: string
   guardianName: string
   guardianContact: string

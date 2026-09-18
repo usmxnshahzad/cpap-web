@@ -20,6 +20,11 @@ export function Profile() {
         <div className="split-2">
           <section className="card panel">
             <h2>{profile?.childName}</h2>
+            {profile?.mrNumber ? (
+              <p className="patient-mr">
+                {tr('mrNumber')}: {profile.mrNumber}
+              </p>
+            ) : null}
             <p>
               {tr('age')}: {profile?.age}
             </p>
